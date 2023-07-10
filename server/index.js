@@ -98,6 +98,8 @@ app.use(passport.session()); // authenticates the session
 
 function checkLoggedIn(req, res, next) {
   //req.user
+  console.log("req.isAuthenticated() : ", req.isAuthenticated());
+  console.log("req.user : ", req.user);
   const isLoggedIn = req.isAuthenticated() && req.user; // req.isAuthenticated() filled by passport
   if (!isLoggedIn)
     return res.redirect("https://waterbnb-wyxn.onrender.com/login");
