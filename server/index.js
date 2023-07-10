@@ -84,7 +84,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((id, done) => {
   User.findOne({ id: id })
     .then((user) => {
-      //console.log("user in node req.user : ", user);
+      console.log("user in node req.user : ", user);
       done(null, user);
     })
     .catch((err) => {
