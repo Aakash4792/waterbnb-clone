@@ -34,7 +34,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "https://waterbnb-wyxn.onrender.com",
     credentials: true,
   })
 );
@@ -99,7 +99,8 @@ app.use(passport.session()); // authenticates the session
 function checkLoggedIn(req, res, next) {
   //req.user
   const isLoggedIn = req.isAuthenticated() && req.user; // req.isAuthenticated() filled by passport
-  if (!isLoggedIn) return res.redirect("http://localhost:3001/login");
+  if (!isLoggedIn)
+    return res.redirect("https://waterbnb-wyxn.onrender.com/login");
   next();
 }
 app.get("/auth/google", passport.authenticate("google", { scope: ["email"] }));
@@ -111,13 +112,13 @@ app.get(
   }),
   (req, res) => {
     console.log("Current user is : ", req.user);
-    return res.redirect("http://localhost:3001/");
+    return res.redirect("https://waterbnb-wyxn.onrender.com/");
   }
 );
 
 app.get("/logout", (req, res) => {
   req.logout();
-  return res.redirect("http://localhost:3001/login");
+  return res.redirect("https://waterbnb-wyxn.onrender.com/login");
 });
 
 app.get("/dummy", (req, res) => {
