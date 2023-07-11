@@ -8,11 +8,9 @@ export default function PlacesPage() {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
     try {
-      axios
-        .get("https://backend-water-bnb.onrender.com/user-places")
-        .then(({ data }) => {
-          setPlaces(data);
-        });
+      axios.get("http://localhost:3000/user-places").then(({ data }) => {
+        setPlaces(data);
+      });
     } catch (err) {
       console.log("list places err : ", err);
     }

@@ -4,9 +4,7 @@ export default function PlaceImg({ place, index = 0, className = null }) {
   return (
     <img
       className={className}
-      src={
-        "https://backend-water-bnb.onrender.com/uploads/" + place.photos[index]
-      }
+      src={"http://localhost:3000/uploads/" + place.photos[index]}
       alt=""
     />
   );

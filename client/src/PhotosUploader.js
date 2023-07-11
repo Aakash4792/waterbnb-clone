@@ -5,7 +5,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
   async function addPhotoByLink(e) {
     e.preventDefault();
     const { data: filename } = await axios.post(
-      "https://backend-water-bnb.onrender.com/upload-by-link",
+      "http://localhost:3000/upload-by-link",
       {
         link: photoLink,
       }
@@ -24,7 +24,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
       data.append("photos", files[i]);
     }
     axios
-      .post("https://backend-water-bnb.onrender.com/upload", data, {
+      .post("http://localhost:3000/upload", data, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((response) => {
@@ -70,7 +70,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
             <div key={link} className="h-32 flex relative">
               <img
                 className="rounded-2xl w-full object-cover"
-                src={"https://backend-water-bnb.onrender.com/uploads/" + link}
+                src={"http://localhost:3000/uploads/" + link}
               />
               <button
                 onClick={(e) => removePhoto(e, link)}

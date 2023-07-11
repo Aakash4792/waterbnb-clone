@@ -28,7 +28,7 @@ export default function ProfilePage() {
           Logged in as {user.name} ({user.email})
           <br />
           <Link
-            to="https://backend-water-bnb.onrender.com/logout"
+            to="http://localhost:3000/logout"
             className="primary max-w-sm mt-2"
           >
             <button className="bg-primary text-white text-center py-2 px-8 rounded-full mt-4">

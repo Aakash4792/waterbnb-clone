@@ -5,12 +5,9 @@ export const UserContext = createContext({});
 
 async function loginHandler() {
   try {
-    const response = await fetch(
-      "https://backend-water-bnb.onrender.com/login",
-      {
-        credentials: "include",
-      }
-    );
+    const response = await fetch("http://localhost:3000/login", {
+      credentials: "include",
+    });
     const data = await response.json();
     console.log("data from server : ", data);
     return data;

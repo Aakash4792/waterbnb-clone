@@ -28,10 +28,7 @@ export default function PlaceGallery({ place }) {
           </div>
           {place?.photos?.length > 0 &&
             place.photos.map((photo) => (
-              <img
-                key={photo}
-                src={"https://backend-water-bnb.onrender.com/uploads/" + photo}
-              />
+              <img key={photo} src={"http://localhost:3000/uploads/" + photo} />
             ))}
         </div>
       </div>
@@ -54,10 +51,7 @@ export default function PlaceGallery({ place }) {
                 <img
                   onClick={() => setShowAllPhotos(true)}
                   className="aspect-square object-cover cursor-pointer"
-                  src={
-                    "https://backend-water-bnb.onrender.com/uploads/" +
-                    place.photos[0]
-                  }
+                  src={"http://localhost:3000/uploads/" + place.photos[0]}
                 />
               </div>
             )}
@@ -67,10 +61,7 @@ export default function PlaceGallery({ place }) {
               <img
                 onClick={() => setShowAllPhotos(true)}
                 className="aspect-square object-cover cursor-pointer"
-                src={
-                  "https://backend-water-bnb.onrender.com/uploads/" +
-                  place.photos[1]
-                }
+                src={"http://localhost:3000/uploads/" + place.photos[1]}
               />
             )}
             {place.photos?.[2] && (
@@ -78,10 +69,7 @@ export default function PlaceGallery({ place }) {
                 <img
                   onClick={() => setShowAllPhotos(true)}
                   className="aspect-square object-cover cursor-pointer relative top-2"
-                  src={
-                    "https://backend-water-bnb.onrender.com/uploads/" +
-                    place.photos[2]
-                  }
+                  src={"http://localhost:3000/uploads/" + place.photos[2]}
                 />
               </div>
             )}

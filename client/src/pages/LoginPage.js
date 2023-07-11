@@ -6,7 +6,7 @@ export default function LoginPage() {
     <div className="flex justify-center grow items-center py-40">
       <div>
         <Link
-          to="https://backend-water-bnb.onrender.com/auth/google"
+          to="http://localhost:3000/auth/google"
           style={{ display: "block" }}
         >
           <GoogleButton />

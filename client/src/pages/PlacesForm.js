@@ -24,22 +24,20 @@ export default function PlacesForm() {
   useEffect(() => {
     if (!id) return;
     console.log("id : ", id);
-    axios
-      .get("https://backend-water-bnb.onrender.com/places/" + id)
-      .then((response) => {
-        const { data } = response;
-        console.log(data);
-        setTitle(data.title);
-        setAddress(data.address);
-        setAddedPhotos(data.photos);
-        setDescription(data.description);
-        setPerks(data.perks);
-        setExtraInfo(data.extraInfo);
-        setCheckIn(data.checkIn);
-        setCheckOut(data.checkOut);
-        setMaxGuests(data.maxGuests);
-        setPrice(data.price);
-      });
+    axios.get("http://localhost:3000/places/" + id).then((response) => {
+      const { data } = response;
+      console.log(data);
+      setTitle(data.title);
+      setAddress(data.address);
+      setAddedPhotos(data.photos);
+      setDescription(data.description);
+      setPerks(data.perks);
+      setExtraInfo(data.extraInfo);
+      setCheckIn(data.checkIn);
+      setCheckOut(data.checkOut);
+      setMaxGuests(data.maxGuests);
+      setPrice(data.price);
+    });
   }, [id]);
   function inputHeader(text) {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -73,7 +71,7 @@ export default function PlacesForm() {
     if (id) {
       //update place
       try {
-        await axios.put("https://backend-water-bnb.onrender.com/places", {
+        await axios.put("http://localhost:3000/places", {
           id,
           ...placeData,
         });
@@ -84,10 +82,7 @@ export default function PlacesForm() {
     } else {
       //create new place
       try {
-        await axios.post(
-          "https://backend-water-bnb.onrender.com/places",
-          placeData
-        );
+        await axios.post("http://localhost:3000/places", placeData);
         setRedirect(true);
       } catch (err) {
         console.log("addnew place err : ", err);

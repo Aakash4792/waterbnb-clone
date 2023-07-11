@@ -19,10 +19,7 @@ const IndexPage = () => {
               <div className="bg-gray-500 mb-2 rounded-2xl flex">
                 <img
                   className="rounded-2xl object-cover aspect-square"
-                  src={
-                    "https://backend-water-bnb.onrender.com/uploads/" +
-                    place.photos[0]
-                  }
+                  src={"http://localhost:3000/uploads/" + place.photos[0]}
                 />
               </div>
             )}
