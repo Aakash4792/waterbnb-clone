@@ -105,8 +105,10 @@ function checkLoggedIn(req, res, next) {
   console.log("req.isAuthenticated() : ", req.isAuthenticated());
   console.log("req.user : ", req.user);
   const isLoggedIn = req.isAuthenticated() && req.user; // req.isAuthenticated() filled by passport
-  if (!isLoggedIn)
+  if (!isLoggedIn) {
+    console.log("being redirec to login page since not authenticated");
     return res.redirect("https://waterbnb-wyxn.onrender.com/login");
+  }
   next();
 }
 app.get("/auth/google", passport.authenticate("google", { scope: ["email"] }));
