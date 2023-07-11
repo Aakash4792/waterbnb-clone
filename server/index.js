@@ -45,9 +45,11 @@ app.use(
     name: "session",
     maxAge: 1000 * 60 * 60 * 24,
     keys: [config.COOKIE_KEY1, config.COOKIE_KEY2],
+    secure: true, // Set secure flag for HTTPS
+    httpOnly: true,
+    secret: "YourSessionSecret",
   })
 );
-app.use(passport.session());
 
 mongoose.connect(process.env.MONGO_URL).then(() => {
   console.log("Connected to db!!!");
