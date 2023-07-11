@@ -46,6 +46,10 @@ app.use(
     name: "session",
     maxAge: 1000 * 60 * 60 * 24,
     keys: [config.COOKIE_KEY1, config.COOKIE_KEY2],
+    domain: [
+      "https://backend-water-bnb.onrender.com",
+      "https://waterbnb-wyxn.onrender.com",
+    ],
   })
 );
 
