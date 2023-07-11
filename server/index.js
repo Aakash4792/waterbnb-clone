@@ -96,10 +96,9 @@ passport.deserializeUser((id, done) => {
       console.log("User not found");
     });
 });
-
-app.use(passport.initialize());
 app.use(passport.session()); // authenticates the session
 //cookie with the keys and sets the req.user with the users identity
+app.use(passport.initialize());
 
 function checkLoggedIn(req, res, next) {
   //req.user
