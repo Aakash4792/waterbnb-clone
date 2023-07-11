@@ -45,9 +45,6 @@ app.use(
     name: "session",
     maxAge: 1000 * 60 * 60 * 24,
     keys: [config.COOKIE_KEY1, config.COOKIE_KEY2],
-    secure: true, // Set secure flag for HTTPS
-    httpOnly: true,
-    secret: "YourSessionSecret",
   })
 );
 
@@ -96,9 +93,10 @@ passport.deserializeUser((id, done) => {
       console.log("User not found");
     });
 });
+
+app.use(passport.initialize());
 app.use(passport.session()); // authenticates the session
 //cookie with the keys and sets the req.user with the users identity
-app.use(passport.initialize());
 
 function checkLoggedIn(req, res, next) {
   //req.user
