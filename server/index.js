@@ -99,6 +99,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use((req, res, next) => {
   console.log("pasport sesion callingg..");
+  console.log("res session : ", req.session);
   next();
 }, passport.session()); // authenticates the session
 //cookie with the keys and sets the req.user with the users identity
