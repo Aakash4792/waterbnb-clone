@@ -82,6 +82,7 @@ passport.serializeUser((user, done) => {
 
 //read the session from the cookie and set properites in req.user
 passport.deserializeUser((id, done) => {
+  console.log("deserialized fired :");
   User.findOne({ id: id })
     .then((user) => {
       console.log("user in node req.user : ", user);
