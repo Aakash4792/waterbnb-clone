@@ -6,9 +6,7 @@ export const UserContext = createContext({});
 
 async function loginHandler() {
   try {
-    const response = await axios.get(
-      "https://backend-water-bnb.onrender.com/login"
-    );
+    const response = await axios.get("/login");
     // fetch(
     //   "https://backend-water-bnb.onrender.com/login",
     //   {
