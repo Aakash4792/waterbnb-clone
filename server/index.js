@@ -13,6 +13,7 @@ const User = require("./models/User");
 const Place = require("./models/Place");
 const Booking = require("./models/Booking");
 const fs = require("fs");
+const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 
@@ -42,15 +43,9 @@ app.use(helmet());
 
 app.use(
   cookieSession({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-      sameSite: "none",
-      secure: true, // Skip for local environments
-      maxAge: 1000 * 60 * 60 * 24 * 7, // One Week
-      name: "session",
-    },
+    name: "session",
+    maxAge: 1000 * 60 * 60 * 24,
+    keys: [config.COOKIE_KEY1, config.COOKIE_KEY2],
   })
 );
 
@@ -100,6 +95,7 @@ passport.deserializeUser((id, done) => {
     });
 });
 
+app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session()); // authenticates the session
 //cookie with the keys and sets the req.user with the users identity
