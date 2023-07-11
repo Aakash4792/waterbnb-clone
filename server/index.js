@@ -50,6 +50,7 @@ app.use(
       "https://backend-water-bnb.onrender.com",
       "https://waterbnb-wyxn.onrender.com",
     ],
+    secure: true,
   })
 );
 
