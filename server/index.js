@@ -110,8 +110,8 @@ function checkLoggedIn(req, res, next) {
   console.log("req.user : ", req.user);
   const isLoggedIn = req.isAuthenticated() && req.user; // req.isAuthenticated() filled by passport
   if (!isLoggedIn) {
-    console.log("being redirec to login page since not authenticated");
-    return res.redirect("https://waterbnb-wyxn.onrender.com/login");
+    console.log("being redirec to home page since not authenticated");
+    return res.redirect("https://waterbnb-wyxn.onrender.com");
   }
   next();
 }
