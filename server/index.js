@@ -39,6 +39,7 @@ app.use(
   })
 );
 app.use(helmet());
+
 app.use(
   cookieSession({
     name: "session",
@@ -51,6 +52,7 @@ app.use(
     ],
   })
 );
+app.use(passport.session());
 
 mongoose.connect(process.env.MONGO_URL).then(() => {
   console.log("Connected to db!!!");
