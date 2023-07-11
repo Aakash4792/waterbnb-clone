@@ -97,7 +97,10 @@ passport.deserializeUser((id, done) => {
 
 app.use(cookieParser());
 app.use(passport.initialize());
-app.use(passport.session()); // authenticates the session
+app.use((req, res, next) => {
+  console.log("pasport sesion callingg..");
+  next();
+}, passport.session()); // authenticates the session
 //cookie with the keys and sets the req.user with the users identity
 
 function checkLoggedIn(req, res, next) {
