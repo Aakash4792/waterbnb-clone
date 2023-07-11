@@ -117,12 +117,11 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
     session: true,
-    successRedirect: "https://waterbnb-wyxn.onrender.com/",
-  })
-  // (req, res) => {
-  //   console.log("Current user is : ", req.user);
-  //   return res.redirect("https://waterbnb-wyxn.onrender.com/");
-  // }
+  }),
+  (req, res) => {
+    console.log("Current user is : ", req.user);
+    return res.redirect("https://waterbnb-wyxn.onrender.com/");
+  }
 );
 
 app.get("/logout", (req, res) => {
