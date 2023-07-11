@@ -42,9 +42,15 @@ app.use(helmet());
 
 app.use(
   cookieSession({
-    name: "session",
-    maxAge: 1000 * 60 * 60 * 24,
-    keys: [config.COOKIE_KEY1, config.COOKIE_KEY2],
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      sameSite: "none",
+      secure: true, // Skip for local environments
+      maxAge: 1000 * 60 * 60 * 24 * 7, // One Week
+      name: "session",
+    },
   })
 );
 
